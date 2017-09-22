@@ -1,42 +1,38 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 
 class Search extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      location: '',
+      location: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ location: e.target.value});
+  handleChange(event) {
+    this.setState({ location: event.target.value });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.onHandle(this.state.location);
-    this.setState({location: ''});
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.handleSubmit(this.state.location);
+    this.setState({ location: '' });
   }
 
   render() {
     return (
-      <div>
       <form onSubmit={this.handleSubmit}>
-        <label>I want to know the weather for
-          <input
-            type="text"
-            placeholder="City,Country"
-            value={this.state.location}
-            onChange={this.handleChange}
-          />
-        </label>
-        <button className="btn btn-primary">Search</button>
+        <input
+          type="text"
+          placeholder="City, County"
+          value={this.state.location}
+          onChange={this.handleChange}
+        />
+        <button className="btn"><i className="fa fa-search" aria-hidden="true"></i></button>
       </form>
-      </div>
     );
   }
 }

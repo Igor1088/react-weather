@@ -1,25 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Search from './Search';
+import Detail from './Detail';
+import Forecast from './Forecast';
 
-const Weather = (props) => {
-  if (props.data.list) {
-      var currentTemp = props.data.list[0].main.temp;
-      var city = props.data.city.name;
-      var country = props.data.city.country;
+class Weather extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      location: '',
+      weatherData: []
     }
+
+    this.makeRequest = this.makeRequest.bind(this);
+  }
+
+  makeRequest(location) {
+    const urlPrefix = 'http://api.openweathermap.org/data/2.5/weather?q=';
+    const urlSufix = '&type=accurate&APPID=1a42227474367ab5f28cac1dbe0b755d&units=metric';
+    const url = urlPrefix + location + urlSufix;
+
+    fetch(url)
+      .then(response => {
+        return response.json();
+      }).then(json => {
+        this.setState(function () {
+          return {
+            weatherData: json
+          }
+        });
+      })
+    this.setState({ location });
+  }
+  render() {
     return (
-      <div>
-        {(city) ?
-          (<div>
-            <div className="temp-wrapper">
-              <span className="temp">{Math.round(currentTemp)}</span>
-              <span className="temp-symbol">°C</span>
-            </div>
-            <span className="info">{`${city}, ${country}`}</span>
-          </div>) :
-          (<span></span>)
-        }
+      <div className="container weather">
+        <Search handleSubmit={this.makeRequest} />
+        <Detail data={this.state.weatherData}/>
+        <Forecast location={this.state.location} />
       </div>
     );
+  }
 }
 
 export default Weather;
