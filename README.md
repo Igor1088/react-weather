@@ -9,8 +9,9 @@
 * OpenWeather API
 
 
-
-1. git clone `https://github.com/Igor1088/MoviesRedux.git`
-2. cd MoviesRedux 
-3. `npm install`
-4. `npm start`
+```
+git clone https://github.com/Igor1088/react-weather.git
+cd react-weather
+npm install
+npm start
+```
