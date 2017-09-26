@@ -1,5 +1,6 @@
 import React from 'react';
 import { getDate } from '../utils/helpers';
+import PropTypes from 'prop-types';
 
 const DayItem = ({data}) => {
   return (
@@ -14,5 +15,9 @@ const DayItem = ({data}) => {
     </div>
   );
 }
+
+DayItem.propTypes = {
+  data: PropTypes.object
+};
 
 export default DayItem;
