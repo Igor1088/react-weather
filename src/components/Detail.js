@@ -1,5 +1,6 @@
 import React from 'react';
 import { getDate } from '../utils/helpers';
+import PropTypes from 'prop-types';
 
 const Detail = (props) => {
   let data = props.data;
@@ -28,5 +29,9 @@ const Detail = (props) => {
     </div>
   );
 }
+
+Detail.propTypes = {
+  data: PropTypes.object
+};
 
 export default Detail;
