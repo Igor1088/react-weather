@@ -9,7 +9,7 @@ class Weather extends Component {
 
     this.state = {
       location: '',
-      weatherData: []
+      weatherData: {}
     }
 
     this.makeRequest = this.makeRequest.bind(this);
