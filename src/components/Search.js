@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
   constructor(props) {
@@ -36,5 +37,9 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  handleSubmit: PropTypes.func
+};
 
 export default Search;
