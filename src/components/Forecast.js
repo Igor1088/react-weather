@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DayItem from './DayItem';
+import PropTypes from 'prop-types';
 
 class Foreacts extends Component {
   constructor(props) {
@@ -59,5 +60,10 @@ class Foreacts extends Component {
     );
   }
 }
+
+Forecast.propTypes = {
+  location: PropTypes.string
+};
+
 
 export default Foreacts;
