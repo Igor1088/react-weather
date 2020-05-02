@@ -27,7 +27,7 @@ class Foreacts extends Component {
 
   makeRequest(location) {
     const urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
-    const urlSufix = '&type=accurate&APPID=1a42227474367ab5f28cac1dbe0b755d&units=metric&cnt=5';
+    const urlSufix = '&type=accurate&APPID=&units=metric&cnt=5';
     const url = urlPrefix + location + urlSufix;
     fetch(url)
       .then(response => {
