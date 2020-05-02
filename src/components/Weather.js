@@ -17,7 +17,7 @@ class Weather extends Component {
 
   makeRequest(location) {
     const urlPrefix = 'http://api.openweathermap.org/data/2.5/weather?q=';
-    const urlSufix = '&type=accurate&APPID=1a42227474367ab5f28cac1dbe0b755d&units=metric';
+    const urlSufix = '&type=accurate&APPID=&units=metric';
     const url = urlPrefix + location + urlSufix;
 
     fetch(url)
